@@ -1,43 +1,29 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <div>
-        <img src="../assets/logo.png" class="mr-5">
-        <router-link to="/" class="navbar-brand">From Hamburg With Love</router-link>
-        <!-- eslint-disable-next-line -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <div class="w-100 d-flex justify-content-between">
+      <!-- LEFT -->
+      <component :is="currentComp"></component>
+
+      <!-- MIDDLE -->
+      <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <router-link to="/" class="nav-link">
+            <li class="nav-item">Shop</li>
+          </router-link>
+          <router-link to="/" class="nav-link">
+            <li class="nav-item">About</li>
+          </router-link>
+          <router-link to="/" class="nav-link">
+            <li class="nav-item">Contact</li>
+          </router-link>
+        </ul>
       </div>
 
-      <!-- Links -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <router-link to="/" class="nav-link">Shop</router-link>
-          </li>
-          <li class="nav-item">
-            <!-- eslint-disable-next-line -->
-            <router-link to="/" class="nav-link">About</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/" class="nav-link">Contact</router-link>
-          </li>
-        </ul>
-
-        <!-- Search Form -->
-        <form class="form-inline">
-          <font-awesome-icon icon="search" />
-          <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
-            aria-label="Search">
-        </form>
-
-        <!-- Sign-in-out -->
-        <div class="d-flex">
-          <!-- eslint-disable-next-line -->
-          <router-link to="/signin" class="nav-link btn nav-link">Sign In</router-link>
-          <button to="/" class="btn nav-link">Log Out</button>
-        </div>
+      <!-- RIGHT -->
+      <div class="w-25 d-flex justify-content-end align-items-center pr-5">
+        <!-- eslint-disable-next-line -->
+        <router-link to="/signin" class="nav-link btn nav-link">Sign In</router-link>
+        <button to="/" class="btn nav-link">Log Out</button>
       </div>
 
     </div>
@@ -45,13 +31,38 @@
 </template>
 
 <script>
+// import SearchToggle from './nav-bar-search/SearchToggle';
+import Search from './nav-bar-search/Search';
+import { bus } from '../main';
+
 export default {
   name: 'NavBar',
+  data() {
+    return {
+      currentComp: Search,
+    };
+  },
+  created() {
+    bus.$on('changeComponent', (data) => {
+      this.currentComp = data;
+    });
+    bus.$on('closeComponent', (data) => {
+      this.currentComp = data;
+    });
+  },
 };
 </script>
 
 <style scoped>
-  img{
-    height: 40px;
+  .nav-link li {
+    color: #3a3b3c;
+    font-weight: bolder;
+    background-color: transparent;
+    transition: 0.2s;
+    border-radius: 4px;
+    padding: 10px 24px;
+  }
+  .nav-link:hover li {
+    background-color: #d9d9d9;
   }
 </style>

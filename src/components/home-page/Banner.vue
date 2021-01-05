@@ -11,7 +11,7 @@
       </div>
       <div class="d-flex align-items-center">
           <!-- eslint-disable-next-line -->
-          <button class="btn btn-banner btn-dark">Start Shopping <i><font-awesome-icon icon="chevron-right" /></i></button>
+          <button class="btn btn-banner btn-dark">Start Shopping <i class="btn-orange"><font-awesome-icon icon="chevron-right" /></i></button>
 
 
           <button class="btn btn-trend btn-warning">
@@ -58,10 +58,10 @@ export default {
   .btn-banner {
     border-radius: 8px !important;
   }
-  i {
+  i.btn-orange {
     background-color: #fe823e;
     border-radius: 100px;
-    padding: 3px 6px;
+    padding: 1px 6px;
     margin-left: 12px;
   }
 
