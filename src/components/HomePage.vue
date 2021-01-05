@@ -1,12 +1,23 @@
 <template>
   <div class="home-page">
-    <h1>Home Page</h1>
+    <Banner />
+    <Featured />
+    <ProductsHomePage />
   </div>
 </template>
 
 <script>
+import Banner from '@/components/home-page/Banner';
+import Featured from '@/components/home-page/Featured';
+import ProductsHomePage from '@/components/home-page/ProductsHomePage';
+
 export default {
   name: 'HomePage',
+  components: {
+    Banner,
+    Featured,
+    ProductsHomePage,
+  },
 };
 </script>
 
