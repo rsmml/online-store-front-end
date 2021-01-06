@@ -7,13 +7,16 @@
       <!-- MIDDLE -->
       <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
         <ul class="navbar-nav">
-          <router-link to="/" class="nav-link">
+          <!-- eslint-disable-next-line -->
+          <router-link to="/products" class="nav-link" :class="{ 'active': isActiveShop }">
             <li class="nav-item">Shop</li>
           </router-link>
-          <router-link to="/" class="nav-link">
+          <!-- eslint-disable-next-line -->
+          <router-link to="/about" class="nav-link" :class="{ 'active': isActiveAbout }">
             <li class="nav-item">About</li>
           </router-link>
-          <router-link to="/" class="nav-link">
+          <!-- eslint-disable-next-line -->
+          <router-link to="/contact" class="nav-link" :class="{ 'active': isActiveContact }">
             <li class="nav-item">Contact</li>
           </router-link>
         </ul>
@@ -40,6 +43,9 @@ export default {
   data() {
     return {
       currentComp: Search,
+      isActiveShop: false,
+      isActiveAbout: false,
+      isActiveContact: false,
     };
   },
   created() {
@@ -49,6 +55,27 @@ export default {
     bus.$on('closeComponent', (data) => {
       this.currentComp = data;
     });
+  },
+  watch: {
+    $route(to) {
+      if (to.name === 'Products') {
+        this.isActiveShop = true;
+        this.isActiveAbout = false;
+        this.isActiveContact = false;
+      } else if (to.name === 'About') {
+        this.isActiveShop = false;
+        this.isActiveAbout = true;
+        this.isActiveContact = false;
+      } else if (to.name === 'Contact') {
+        this.isActiveShop = false;
+        this.isActiveAbout = false;
+        this.isActiveContact = true;
+      } else {
+        this.isActiveShop = false;
+        this.isActiveAbout = false;
+        this.isActiveContact = false;
+      }
+    },
   },
 };
 </script>
@@ -65,4 +92,15 @@ export default {
   .nav-link:hover li {
     background-color: #d9d9d9;
   }
+
+  .active li {
+    color: #3a3b3c;
+    font-weight: bolder;
+    background-color: transparent;
+    transition: 0.2s;
+    border-radius: 4px;
+    padding: 10px 24px;
+    background-color: #d9d9d9;
+  }
+
 </style>

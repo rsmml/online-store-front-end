@@ -1,6 +1,8 @@
 <template>
   <div class="w-25 text-left d-flex align-items-center justify-content-between pl-5">
-    <img src="../../assets/logo.png" class="mr-5">
+    <router-link to="/">
+      <img src="../../assets/logo.png" class="mr-5">
+    </router-link>
     <!-- <router-link to="/" class="navbar-brand">From Hamburg With Love</router-link> -->
     <!-- eslint-disable-next-line -->
     <!-- Search Form -->
