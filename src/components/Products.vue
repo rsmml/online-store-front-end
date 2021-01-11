@@ -1,7 +1,9 @@
 <template>
   <div id="products">
     <Categories />
-    <ProductCard />
+    <div class="container">
+      <ProductCard/>
+    </div>
   </div>
 </template>
 

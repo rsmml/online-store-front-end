@@ -15,6 +15,10 @@ const state = {
 const getters = {
   // eslint-disable-next-line
   allProducts: state => state.products,
+  // eslint-disable-next-line
+  showProduct: state => (id) => {
+    return state.products.filter(p => p.id === id);
+  },
 };
 
 const actions = {

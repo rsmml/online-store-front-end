@@ -4,6 +4,7 @@ import HomePage from '@/components/HomePage';
 import Products from '@/components/Products';
 import About from '@/components/About';
 import Contact from '@/components/Contact';
+import ShowProduct from '@/components/products-page/ShowProduct';
 
 Vue.use(Router);
 
@@ -29,6 +30,10 @@ export default new Router({
       path: '/contact',
       name: 'Contact',
       component: Contact,
+    },
+    {
+      path: '/product/:id',
+      component: ShowProduct,
     },
   ],
 });

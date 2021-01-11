@@ -5,13 +5,13 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 import 'bootstrap'; import 'bootstrap/dist/css/bootstrap.min.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faSearch, faChevronRight, faBurn, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faChevronRight, faBurn, faTimes, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import App from './App';
 import router from './router';
 import products from './store/products';
 
-library.add(faSearch, faChevronRight, faBurn, faTimes);
+library.add(faSearch, faChevronRight, faBurn, faTimes, faHeart);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 // eslint-disable-next-line
