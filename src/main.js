@@ -3,6 +3,7 @@
 import Vue from 'vue';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
+import VueCarousel from 'vue-carousel';
 import 'bootstrap'; import 'bootstrap/dist/css/bootstrap.min.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSearch, faChevronRight, faBurn, faTimes, faHeart } from '@fortawesome/free-solid-svg-icons';
@@ -19,7 +20,7 @@ export const bus = new Vue();
 
 Vue.config.productionTip = false;
 
-Vue.use(VueAxios, axios);
+Vue.use(VueAxios, axios, VueCarousel);
 
 /* eslint-disable no-new */
 new Vue({
