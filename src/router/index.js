@@ -32,7 +32,7 @@ export default new Router({
       component: Contact,
     },
     {
-      path: '/product/:id',
+      path: '/products/:id',
       component: ShowProduct,
     },
   ],

@@ -2,7 +2,7 @@
   <div id="product-card">
     <ul class="">
       <li v-for="product in products" :key="product.id">
-        <router-link :to="{ name: '/products', params: { productId: product.id}}">
+        <router-link :to="'/products/' + product.id">
           <div class="card d-flex justify-content-start flex-column align-items-start">
             <div class="new-tag">
               <p style="margin: 0;">New</p>
