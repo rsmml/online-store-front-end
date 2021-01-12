@@ -38,6 +38,7 @@ export default {
 
   .banner-container{
     height: 80vh;
+    width: 100vw;
     object-fit: cover;
     background-size: cover;
     background-repeat: no-repeat;

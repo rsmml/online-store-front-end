@@ -1,12 +1,12 @@
 <template>
-  <div class="align-items-end row">
+  <div class="align-items-end row" style="width: 100vw">
     <!-- Picture -->
     <div class="col-lg-3 col-12 d-flex justify-content-center">
       <img src="../../assets/featured.png" class="featured-picture">
     </div>
 
     <!-- Banner -->
-    <div class="col-lg-9 col-12">
+    <div class="col-lg-9 col-12 p-0">
 
       <!-- Title -->
       <div class="row featured-title d-flex justify-content-center align-items-center">
