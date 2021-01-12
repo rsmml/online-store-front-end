@@ -95,7 +95,7 @@ export default {
   }
   .new-tag {
     position: absolute;
-    background-color: white;
+    background-color: #89e900;
     padding: 4px 12px;
     right: 10px;
     top: 10px;
