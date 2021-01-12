@@ -11,13 +11,12 @@ Vue.use(Vuex);
 const state = {
   products: [],
 };
-
 const getters = {
   // eslint-disable-next-line
   allProducts: state => state.products,
   // eslint-disable-next-line
   showProduct: state => (id) => {
-    return state.products.filter(p => p.id === id);
+    return state.products.filter(p => p.product.id === id);
   },
 };
 

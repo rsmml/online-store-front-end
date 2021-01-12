@@ -2,7 +2,7 @@
   <div id="product-card">
     <ul class="">
       <li v-for="product in products" :key="product.id">
-        <router-link :to="'/products/' + product.id">
+        <router-link :to="'/products/' + product.product.id">
           <div class="card d-flex justify-content-start flex-column align-items-start">
             <div class="new-tag">
               <p style="margin: 0;">New</p>
@@ -11,14 +11,17 @@
               <font-awesome-icon icon="heart" :class="{ 'heart-color': heartColor }" />
             </div>
             <!-- Image -->
-            <div class="image"></div>
+            <div class="image">
+              <!-- eslint-disable-next-line -->
+              <cld-image cloudName="from-hamburg-with-love" :publicId="product.photos[0]" width="300" crop="scale" />
+            </div>
 
             <!-- Text -->
             <div>
               <!-- Title -->
-              <p class="cart-title">{{ product.title }}</p>
+              <p class="cart-title">{{ product.product.title }}</p>
               <!-- Price -->
-              <p class="cart-price" style="font-size: 14px;">€ {{ product.price }}</p>
+              <p class="cart-price" style="font-size: 14px;">€ {{ product.product.price }}</p>
             </div>
           </div>
         </router-link>
