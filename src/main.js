@@ -8,7 +8,7 @@ import Cloudinary from 'cloudinary-vue';
 import 'bootstrap'; import 'bootstrap/dist/css/bootstrap.min.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faFontAwesome, faTwitterSquare, faFacebookSquare, faInstagramSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faSearch, faChevronRight, faBurn, faTimes, faHeart, faStar, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faChevronRight, faBurn, faTimes, faHeart, faStar, faMapMarkerAlt, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import App from './App';
 import router from './router';
@@ -27,6 +27,7 @@ library.add(
   faInstagramSquare,
   faLinkedin,
   faMapMarkerAlt,
+  faShoppingBag,
 );
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);

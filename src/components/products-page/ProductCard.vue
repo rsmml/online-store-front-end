@@ -5,7 +5,7 @@
         <router-link :to="'/products/' + product.product.id">
           <div class="card d-flex justify-content-start flex-column align-items-start">
             <div class="new-tag">
-              <p style="margin: 0;">New</p>
+              <p style="margin: 0;">NEW</p>
             </div>
             <div @click.prevent="changeColor">
               <font-awesome-icon icon="heart" :class="{ 'heart-color': heartColor }" />
@@ -95,7 +95,8 @@ export default {
   }
   .new-tag {
     position: absolute;
-    background-color: #89e900;
+    background-color: #272727;
+    color: white;
     padding: 4px 12px;
     right: 10px;
     top: 10px;
