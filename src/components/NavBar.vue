@@ -1,6 +1,6 @@
 <template>
   <!-- eslint-disable-next-line -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column"  @mouseleave="active = false">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column"  @mouseleave="shopActive = false; whatsNewActive = false">
     <div class="w-100 d-flex justify-content-between mt-4">
       <!-- LEFT -->
       <component :is="currentComp"></component>
@@ -24,17 +24,24 @@
       <ul class="navbar-nav">
         <!-- eslint-disable-next-line -->
         <router-link to="/products" class="nav-link">
-          <li class="nav-item" @mouseover="active = true">
+          <li class="nav-item" @mouseover="shopActive = true">
             <p class="mb-0">Shop</p>
           </li>
         </router-link>
+        <!-- HOVER SHOP -->
         <transition name="fade">
-          <ShopHover v-if="active" style="z-index: 1;"></ShopHover>
+          <ShopHover v-if="shopActive" style="z-index: 1;"></ShopHover>
         </transition>
         <!-- eslint-disable-next-line -->
         <router-link to="/about" class="nav-link">
-          <li class="nav-item">What's new</li>
+          <li class="nav-item" @mouseover="whatsNewActive = true">
+            <p class="mb-0">What's New</p>
+          </li>
         </router-link>
+        <!-- HOVER WHATSNEW -->
+        <transition name="fade">
+          <WhatsNewHover v-if="whatsNewActive" style="z-index: 1;"></WhatsNewHover>
+        </transition>
         <!-- eslint-disable-next-line -->
         <router-link to="/contact" class="nav-link">
           <li class="nav-item">Skincare</li>
@@ -68,17 +75,20 @@
 // import SearchToggle from './nav-bar-search/SearchToggle';
 import Search from './nav-bar-search/Search';
 import ShopHover from './nav-bar-hover/ShopHover';
+import WhatsNewHover from './nav-bar-hover/WhatsNewHover';
 import { bus } from '../main';
 
 export default {
   name: 'NavBar',
   components: {
     ShopHover,
+    WhatsNewHover,
   },
   data() {
     return {
       currentComp: Search,
-      active: false,
+      shopActive: false,
+      whatsNewActive: false,
       isActiveShop: false,
       isActiveAbout: false,
       isActiveContact: false,
@@ -93,8 +103,9 @@ export default {
     });
   },
   methods: {
-    mouseOver() {
-      this.active = !this.active;
+    mouseover() {
+      this.shopActive = !this.shopActive;
+      this.whatsNewActive = !this.whatsNewActive;
     },
   },
 };
