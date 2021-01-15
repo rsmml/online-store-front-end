@@ -15,6 +15,7 @@
         <button to="/" class="btn nav-link">Log Out</button>
         <div class="ml-2 shopping-bag">
           <font-awesome-icon icon="shopping-bag"/>
+          <span class="badge badge-pill badge-danger">1</span>
         </div>
       </div>
 
@@ -151,6 +152,13 @@ export default {
   }
   .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0;
+  }
+  .badge {
+    text-align: start;
+    position: absolute;
+    top: 34px;
+    right: 40px;
+    padding: 3px 6px;
   }
 
 </style>

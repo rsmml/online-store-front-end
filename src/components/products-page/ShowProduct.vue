@@ -31,9 +31,12 @@
         <p>€ {{product.product.price}}</p>
         <p style="text-align: left;">{{product.product.description}}</p>
         <div class="w-100 d-flex justify-content-between">
-          <button class="btn btn-dark btn-lg btn-block mr-3">Add to bag</button>
+          <!-- ADD TO BAG -->
           <!-- eslint-disable-next-line -->
-          <button class="btn btn-dark"><font-awesome-icon icon="heart" :class="{ 'heart-color': heartColor }" /></button>
+          <button @click.prevent="addToBag" class="btn btn-dark btn-lg btn-block mr-3">Add to bag</button>
+          <!-- ADD TO WISH LIST -->
+          <!-- eslint-disable-next-line -->
+          <button class="btn btn-dark"><font-awesome-icon icon="heart" /></button>
         </div>
       </div>
     </div>
@@ -42,6 +45,7 @@
 
 <script>
 import { Carousel, Slide } from 'vue-carousel';
+import axios from 'axios';
 
 export default {
   name: 'ShowProduct',
@@ -61,6 +65,14 @@ export default {
   components: {
     Carousel,
     Slide,
+  },
+  methods: {
+    addToBag() {
+      axios.post('http://localhost:3000/api/v1/order_items',
+        { product_id: this.product.product.id, quantity: 1, stock: 1 })
+        .then(response => console.log(response))
+        .catch(error => console.log(error));
+    },
   },
 };
 </script>
